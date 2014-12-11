@@ -67,7 +67,7 @@ $(document).ready(function() {
     var iName = inName(name) || function(){};
     $('#name').html(iName);
   });
-})
+});
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -77,11 +77,11 @@ clickLocations = [];
 function logClicks(x,y) {
   clickLocations.push(
     {
-      "x": x,
-      "y": y
+      x: x,
+      y: y
     }
   );
-  console.log("x location: " + x + "; y location: " + y);
+  console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
@@ -188,7 +188,7 @@ function initializeMap() {
   */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0])
+      createMapMarker(results[0]);
     }
   }
 
@@ -203,12 +203,12 @@ function initializeMap() {
     var service = new google.maps.places.PlacesService(map);
 
     // Iterates through the array of locations, creates a search object for each location
-    for (place in locations) {
+    for (var place in locations) {
 
       // the search request object
       var request = {
         query: locations[place]
-      }
+      };
 
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
@@ -226,7 +226,9 @@ function initializeMap() {
   // the locations array
   pinPoster(locations);
 
-};
+
+}
+
 
 /*
 Uncomment the code below when you're ready to implement a Google Map!
