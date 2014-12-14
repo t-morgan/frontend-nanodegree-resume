@@ -33,7 +33,7 @@ var education = {
       "degree" : "BS",
       "majors" : ["Computer Science"],
       "years" : "2011-2014",
-      "city" : "Columbus"
+      "location" : "Columbus, OH"
     }
   ],
   "onlineCourses" : [
@@ -64,7 +64,8 @@ var bio = {
   "contacts" : {
     "email" : "tmorgan@manifestcorp.com",
     "twitter" : "@t_mrgn",
-    "github" : "t-morgan"
+    "github" : "t-morgan",
+    "location" : "Grove City, OH"
   },
   "pictureURL" : "images/me.jpg",
   "welcomeMessage" : "Hello World!",
@@ -94,6 +95,9 @@ var formattedTwitter =
 var formattedGithub =
     HTMLgithub.replace("%data%", bio.contacts.github);
 
+var formattedLocation =
+    HTMLlocation.replace("%data%", bio.contacts.location);
+
 function displayWork() {
   for (position in bio.work.positions) {
     $("#workExperience").append(HTMLworkStart);
@@ -118,7 +122,10 @@ function displayWork() {
 }
 $("#header").prepend(formattedRole).prepend(formattedName);
 $("#header").prepend(formattedPicture);
-$("#topContacts").append(formattedEmail).append(formattedTwitter).append(formattedGithub);
+$("#topContacts").append(formattedEmail).
+  append(formattedTwitter).
+  append(formattedGithub).
+  append(formattedLocation);
 $("#header").append(formattedWelcomeMessage);
 if (bio.work.positions.length > 0) {
   displayWork();
